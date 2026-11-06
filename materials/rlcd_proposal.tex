@@ -107,89 +107,62 @@ a reproducible training framework.
 
 \section*{Related Work}
 
-% \textbf{Jev} introduces System 1-style probabilistic
-% decision-making and RLCD as an alternative to
-% autoregressive reasoning.
-% However, its model weights, training code, and full
-% training recipe remain proprietary, limiting
-% independent reproduction.
-% \textbf{Laya} provides an open-source implementation
-% of Jev-compatible typed decisions and RLCD,
-% offering an accessible foundation for further research.
-% \textbf{Sev} investigates RLCD optimization through
-% independent reproduction and analysis.
-% \textbf{Kev} and \textbf{Strands Decider} extend the
-% open-source decision-model ecosystem through
-% alternative architectures and training pipelines. Despite these advances, RLCD optimization remains
-% relatively underexplored, particularly in reward
-% design and policy optimization.
-% Our project aims to develop a reproducible RLCD
-% training framework and investigate improvements
-% to its optimization.
-
 \textbf{Jev} introduces System 1-style probabilistic
 decision-making and RLCD, while
 \textbf{Microsoft-Decision-1} demonstrates the potential
 of efficient decision models.
-However, their proprietary implementations and
-limited disclosure of training methodologies
-restrict reproducibility.
-\textbf{Clef} provides open model weights but
-does not offer a fully reproducible training pipeline. Meanwhile, \textbf{Laya} and \textbf{Kev} provide
-open-source implementations of typed-decision models.
-Laya introduces a practical RLCD training approach,
-whereas Kev primarily adopts supervised learning
-and post-hoc calibration.
-However, RLCD optimization remains relatively
-underexplored, particularly in reward design
-and policy optimization.
-Our project aims to develop a reproducible RLCD
-training framework and explore improvements
-in reinforcement learning strategies.
-
+Within the open-source ecosystem, \textbf{Kev} and
+\textbf{Laya} illustrate different training approaches
+for typed-decision models: Kev primarily combines
+supervised learning with post-hoc calibration,
+whereas Laya incorporates RLCD to improve probability
+calibration.
+These approaches motivate our investigation of what
+RLCD adds to supervised training and how its
+optimization can be improved.
+Building on Laya's approach, our project will establish
+a reproducible two-stage training framework and
+investigate how our proposed optimization strategies
+affect decision accuracy and probability calibration.
 
 % ==================================================
 % Planned Approach
 % ==================================================
 
-
 \section*{Planned Approach}
 
-We plan to develop \textbf{DecisionRL} by exploring
-decision model design and reinforcement learning
-strategies for reliable and calibrated decision-making.
-This development will involve two main components:
-data construction and curation, and model training
-with RLCD optimization.
+We plan to develop \textbf{DecisionRL}, a decision model
+based on \textbf{EuroBERT}, through supervised
+fine-tuning (SFT) followed by RLCD.
+Using Laya's RLCD approach as the starting point,
+we will build a reproducible experimental pipeline
+and investigate modifications to its reinforcement
+learning optimization strategy.
+The work will comprise two components:
 
 \begin{itemize}
 
   \item \textbf{Data Construction and Curation.}
-  We plan to collect diverse datasets across multiple
-  domains to support model training and evaluation.
-  We will develop a data processing pipeline for data
-  acquisition, cleaning, and augmentation.
-  Hard-labeled data will be used to establish the
-  model's foundational classification capabilities,
-  while soft-labeled data will support RLCD training
-  to better calibrate predicted probabilities.
+  We will collect and curate decision datasets with
+  hard and soft labels, using a common processing
+  pipeline for training and evaluation.
+  Hard-labeled data will support supervised fine-tuning
+  to establish foundational classification capabilities,
+  while soft-labeled data will provide probabilistic
+  supervision for RLCD.
+  We will maintain separate training and test splits
+  to support consistent comparisons across training
+  stages and optimization variants.
 
-  \item \textbf{Model Training and RLCD Optimization.}
-  Using \textbf{EuroBERT} as our base checkpoint,
-  we plan to develop a reliable two-stage training
-  framework. This framework will support modern
-  training techniques such as sequence packing to
-  improve training efficiency.
-  In the first stage, we will perform supervised
-  fine-tuning (SFT) on high-quality decision datasets
-  to establish foundational classification capabilities.
-  We will then apply RLCD with probabilistic
-  supervision to improve the calibration of predicted
-  probabilities.
-  Building on this framework, we further aim to refine
-  Laya's original RLCD algorithm by exploring enhanced
-  reinforcement learning optimization strategies for
-  more reliable and calibrated decisions.
+  \item \textbf{Two-Stage Training and RLCD Optimization.}
+  Starting from EuroBERT, we will first perform
+  supervised fine-tuning on hard-labeled decision data.
+  We will then implement Laya's RLCD approach using
+  soft-label supervision to establish a baseline
+  for reinforcement learning.
+  From a common SFT checkpoint, we will explore
+  improved RLCD optimization strategies for more
+  accurate and better-calibrated decisions.
 
 \end{itemize}
 
