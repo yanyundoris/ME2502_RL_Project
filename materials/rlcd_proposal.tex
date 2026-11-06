@@ -107,70 +107,91 @@ a reproducible training framework.
 
 \section*{Related Work}
 
+% \textbf{Jev} introduces System 1-style probabilistic
+% decision-making and RLCD as an alternative to
+% autoregressive reasoning.
+% However, its model weights, training code, and full
+% training recipe remain proprietary, limiting
+% independent reproduction.
+% \textbf{Laya} provides an open-source implementation
+% of Jev-compatible typed decisions and RLCD,
+% offering an accessible foundation for further research.
+% \textbf{Sev} investigates RLCD optimization through
+% independent reproduction and analysis.
+% \textbf{Kev} and \textbf{Strands Decider} extend the
+% open-source decision-model ecosystem through
+% alternative architectures and training pipelines. Despite these advances, RLCD optimization remains
+% relatively underexplored, particularly in reward
+% design and policy optimization.
+% Our project aims to develop a reproducible RLCD
+% training framework and investigate improvements
+% to its optimization.
+
 \textbf{Jev} introduces System 1-style probabilistic
-decision-making and RLCD as an alternative to
-autoregressive reasoning.
-However, its model weights, training code, and full
-training recipe remain proprietary, limiting
-independent reproduction.
-\textbf{Laya} provides an open-source implementation
-of Jev-compatible typed decisions and RLCD,
-offering an accessible foundation for further research.
-\textbf{Sev} investigates RLCD optimization through
-independent reproduction and analysis.
-\textbf{Kev} and \textbf{Strands Decider} extend the
-open-source decision-model ecosystem through
-alternative architectures and training pipelines. Despite these advances, RLCD optimization remains
-relatively underexplored, particularly in reward
-design and policy optimization.
+decision-making and RLCD, while
+\textbf{Microsoft-Decision-1} demonstrates the potential
+of efficient decision models.
+However, their proprietary implementations and
+limited disclosure of training methodologies
+restrict reproducibility.
+\textbf{Clef} provides open model weights but
+does not offer a fully reproducible training pipeline. Meanwhile, \textbf{Laya} and \textbf{Kev} provide
+open-source implementations of typed-decision models.
+Laya introduces a practical RLCD training approach,
+whereas Kev primarily adopts supervised learning
+and post-hoc calibration.
+However, RLCD optimization remains relatively
+underexplored, particularly in reward design
+and policy optimization.
 Our project aims to develop a reproducible RLCD
-training framework and investigate improvements
-to its optimization.
+training framework and explore improvements
+in reinforcement learning strategies.
+
 
 % ==================================================
 % Planned Approach
 % ==================================================
 
+
 \section*{Planned Approach}
 
-We develop DecisionRL to explore improved
+We plan to develop \textbf{DecisionRL} to explore
 reinforcement learning strategies for reliable and
-calibrated decision-making. We explore ModernBERT and EuroBERT as pretrained encoder backbones.
+calibrated decision-making. We will consider
+\textbf{ModernBERT} and \textbf{EuroBERT} as
+pretrained encoder backbones.
 
 \begin{itemize}
 
-  % \item \textbf{Base Model Selection.}
-  % We explore \textbf{ModernBERT} and
-  % \textbf{EuroBERT} as pretrained encoder backbones.
-
   \item \textbf{Data Construction and Curation.}
-  We use all official \texttt{typed-decisions}
+  We will use all official \texttt{typed-decisions}
   training examples and collect additional
   open-source decision datasets across multiple
   domains.
-  Our data construction focuses on two types of
+  Our data preparation will cover two types of
   supervision: hard labels for SFT and probabilistic
   calibration labels for RLCD.
   Since reliable probabilistic labels are scarce,
-  we synthesize diverse decision scenarios and
-  construct calibration labels from teacher-model
-  logit distributions or aggregated predictions
-  through repeated sampling and voting.
+  we will synthesize diverse decision scenarios
+  and construct calibration labels from
+  teacher-model logit distributions or aggregated
+  predictions through repeated sampling and voting.
 
   \item \textbf{Model Training and RLCD Optimization.}
-  We adopt a two-stage training framework.
-  First, we perform supervised fine-tuning (SFT)
-  on high-quality decision datasets to establish
+  We will adopt a two-stage training framework.
+  First, we will perform supervised fine-tuning
+  (SFT) on high-quality decision datasets to establish
   general decision-making capabilities.
-  We then apply RLCD to optimize decision
+  We will then apply RLCD to optimize decision
   probabilities using verified probabilistic
   supervision.
-  We also explore improvements to Laya's original
-  RLCD algorithm through enhanced reinforcement
+  We also aim to improve Laya's original RLCD
+  algorithm by exploring enhanced reinforcement
   learning optimization strategies for more
   reliable and calibrated decisions.
 
 \end{itemize}
+
 
 % ==================================================
 % Evaluation Plan
@@ -181,8 +202,7 @@ calibrated decision-making. We explore ModernBERT and EuroBERT as pretrained enc
 We compare the original pretrained backbones,
 released Laya, SFT, SFT + RLCD, and DecisionRL
 on the held-out 
-test set.
-We report \textbf{Accuracy},
+test set. We will report \textbf{Accuracy},
 \textbf{Macro F1 Score},
 \textbf{Expected Calibration Error (ECE)},
 and \textbf{Brier Score} to measure decision
