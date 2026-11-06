@@ -1,0 +1,211 @@
+
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Page setup ----------
+\usepackage[
+  top=17mm,
+  bottom=17mm,
+  left=19mm,
+  right=19mm
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+% ---------- Color palette ----------
+\definecolor{ink}{HTML}{193A4D}
+\definecolor{muted}{HTML}{52616B}
+\definecolor{rulegray}{HTML}{D4DEE3}
+
+% ---------- Typography ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{1.5em}
+\linespread{1.055}
+
+\raggedbottom
+\pagestyle{empty}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\color{ink}\bfseries\normalsize}
+  {}{0pt}{}
+  [\vspace{2pt}\color{rulegray}\titlerule]
+
+\titlespacing*{\section}
+  {0pt}{9pt}{4pt}
+
+% ---------- List formatting ----------
+\setlist[itemize]{
+  leftmargin=1.25em,
+  itemsep=4pt,
+  topsep=3pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+% ==================================================
+% Title
+% ==================================================
+
+\begin{center}
+  {\fontsize{15}{18}\selectfont
+   \bfseries\color{ink}
+   DecisionRL: Enhancing Decision Calibration\\
+   through Reinforcement Learning\par}
+
+  \vspace{4pt}
+
+  {\small\color{muted}
+   Reinforcement Learning Course Project Proposal}
+
+  \vspace{5pt}
+
+  {\small
+   \textbf{Team Members:}
+    \quad\textbullet\quad
+   Taihua Chen (260010020)
+   \quad\textbullet\quad
+   Yanyun LIU (260010215)}
+\end{center}
+
+\vspace{1pt}
+
+% ==================================================
+% Research Question
+% ==================================================
+
+\section*{Research Question}
+
+As large language models evolve from
+question answerers to decision makers,
+efficient and reliable decision-making becomes
+increasingly important.
+While System 2-style models emphasize deliberate,
+multi-step reasoning, System 1-style models aim to
+provide fast, intuitive judgments.
+Jev introduces a complementary paradigm of
+structured probabilistic decisions, producing
+explicit probability distributions over candidate
+actions instead of lengthy reasoning trajectories.
+Inspired by this paradigm, our project explores how
+\textbf{Reinforcement Learning for Calibrated
+Decisions (RLCD)} can enhance decision accuracy,
+probability calibration, and reliability through
+a reproducible training framework.
+
+% ==================================================
+% Related Work
+% ==================================================
+
+\section*{Related Work}
+
+\textbf{Jev} introduces System 1-style probabilistic
+decision-making and RLCD as an alternative to
+autoregressive reasoning.
+However, its model weights, training code, and full
+training recipe remain proprietary, limiting
+independent reproduction.
+\textbf{Laya} provides an open-source implementation
+of Jev-compatible typed decisions and RLCD,
+offering an accessible foundation for further research.
+\textbf{Sev} investigates RLCD optimization through
+independent reproduction and analysis.
+\textbf{Kev} and \textbf{Strands Decider} extend the
+open-source decision-model ecosystem through
+alternative architectures and training pipelines. Despite these advances, RLCD optimization remains
+relatively underexplored, particularly in reward
+design and policy optimization.
+Our project aims to develop a reproducible RLCD
+training framework and investigate improvements
+to its optimization.
+
+% ==================================================
+% Planned Approach
+% ==================================================
+
+\section*{Planned Approach}
+
+We develop DecisionRL to explore improved
+reinforcement learning strategies for reliable and
+calibrated decision-making. We explore ModernBERT and EuroBERT as pretrained encoder backbones.
+
+\begin{itemize}
+
+  % \item \textbf{Base Model Selection.}
+  % We explore \textbf{ModernBERT} and
+  % \textbf{EuroBERT} as pretrained encoder backbones.
+
+  \item \textbf{Data Construction and Curation.}
+  We use all official \texttt{typed-decisions}
+  training examples and collect additional
+  open-source decision datasets across multiple
+  domains.
+  Our data construction focuses on two types of
+  supervision: hard labels for SFT and probabilistic
+  calibration labels for RLCD.
+  Since reliable probabilistic labels are scarce,
+  we synthesize diverse decision scenarios and
+  construct calibration labels from teacher-model
+  logit distributions or aggregated predictions
+  through repeated sampling and voting.
+
+  \item \textbf{Model Training and RLCD Optimization.}
+  We adopt a two-stage training framework.
+  First, we perform supervised fine-tuning (SFT)
+  on high-quality decision datasets to establish
+  general decision-making capabilities.
+  We then apply RLCD to optimize decision
+  probabilities using verified probabilistic
+  supervision.
+  We also explore improvements to Laya's original
+  RLCD algorithm through enhanced reinforcement
+  learning optimization strategies for more
+  reliable and calibrated decisions.
+
+\end{itemize}
+
+% ==================================================
+% Evaluation Plan
+% ==================================================
+
+\section*{Evaluation Plan}
+
+We compare the original pretrained backbones,
+released Laya, SFT, SFT + RLCD, and DecisionRL
+on the held-out 
+test set.
+We report \textbf{Accuracy},
+\textbf{Macro F1 Score},
+\textbf{Expected Calibration Error (ECE)},
+and \textbf{Brier Score} to measure decision
+correctness, class-balanced performance,
+confidence calibration, and probability quality,
+respectively.
+
+% ==================================================
+% Resources and Responsibilities
+% ==================================================
+
+\section*{Required Resources and Division of Responsibilities}
+
+\textbf{Resources:}
+No additional equipment or specialized resources
+are required.
+
+\textbf{Preliminary Division of Responsibilities:}
+Both team members will jointly participate in project
+discussions, research planning, and RLCD methodological
+design.
+Yanyun LIU will primarily contribute to data
+collection, synthesis, and quality control,
+while Taihua Chen will focus more on model and algorithm optimization.
+
+\end{document}

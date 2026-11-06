@@ -1,0 +1,6 @@
+# Ignore new files by default; keep LaTeX sources and PDFs.
+*
+!*/
+!*.tex
+!*.pdf
+!.gitignore
