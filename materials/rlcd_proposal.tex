@@ -199,16 +199,19 @@ pretrained encoder backbones.
 
 \section*{Evaluation Plan}
 
-We will compare the original pretrained backbones,
-released Laya, SFT, SFT + RLCD, and DecisionRL
-on the held-out 
-test set, and we will report \textbf{Accuracy},
+We will evaluate DecisionRL on hard-label datasets
+(such as DAIR Emotion and Banking77) and soft-label
+datasets (such as Typed Decisions), comparing it
+with representative decision models such as Jev.
+Evaluation metrics will include \textbf{Accuracy},
 \textbf{Macro F1 Score},
 \textbf{Expected Calibration Error (ECE)},
-and \textbf{Brier Score} to measure decision
-correctness, class-balanced performance,
-confidence calibration, and probability quality,
-respectively.
+and \textbf{Brier Score}.
+In this way, we will assess the foundational
+decision-making capabilities established through SFT
+and further analyze the effects of RLCD and our
+proposed improvements on probability calibration
+and decision-making behavior.
 
 % ==================================================
 % Resources and Responsibilities
