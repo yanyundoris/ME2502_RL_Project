@@ -155,11 +155,12 @@ in reinforcement learning strategies.
 
 \section*{Planned Approach}
 
-We plan to develop \textbf{DecisionRL} to explore
-reinforcement learning strategies for reliable and
-calibrated decision-making. We will consider
-\textbf{ModernBERT} and \textbf{EuroBERT} as
-pretrained encoder backbones.
+We plan to develop \textbf{DecisionRL} by exploring
+decision model design and reinforcement learning
+strategies for reliable and calibrated decision-making.
+This development will involve two main components:
+data construction and curation, and model training
+with RLCD optimization.
 
 \begin{itemize}
 
@@ -178,7 +179,8 @@ pretrained encoder backbones.
   predictions through repeated sampling and voting.
 
   \item \textbf{Model Training and RLCD Optimization.}
-  We will adopt a two-stage training framework.
+  Using \textbf{EuroBERT} as our base checkpoint,
+  we will adopt a two-stage training framework.
   First, we will perform supervised fine-tuning
   (SFT) on high-quality decision datasets to establish
   general decision-making capabilities.
