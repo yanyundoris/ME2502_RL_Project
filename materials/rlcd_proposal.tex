@@ -120,10 +120,10 @@ calibration.
 These approaches motivate our investigation of what
 RLCD adds to supervised training and how its
 optimization can be improved.
-Building on Laya's approach, our project will establish
-a reproducible two-stage training framework and
-investigate how our proposed optimization strategies
-affect decision accuracy and probability calibration.
+Our project will develop a reproducible two-stage
+training framework to investigate the benefits of RLCD
+beyond supervised fine-tuning and evaluate strategies
+for improving decision accuracy and probability calibration.
 
 % ==================================================
 % Planned Approach
@@ -134,10 +134,9 @@ affect decision accuracy and probability calibration.
 We plan to develop \textbf{DecisionRL}, a decision model
 based on \textbf{EuroBERT}, through supervised
 fine-tuning (SFT) followed by RLCD.
-Using Laya's RLCD approach as the starting point,
-we will build a reproducible experimental pipeline
-and investigate modifications to its reinforcement
-learning optimization strategy.
+We will build our own training and evaluation pipeline
+to compare an RLCD baseline with proposed optimization
+variants.
 The work will comprise two components:
 
 \begin{itemize}
@@ -155,14 +154,14 @@ The work will comprise two components:
   stages and optimization variants.
 
   \item \textbf{Two-Stage Training and RLCD Optimization.}
-  Starting from EuroBERT, we will first perform
-  supervised fine-tuning on hard-labeled decision data.
-  We will then implement Laya's RLCD approach using
-  soft-label supervision to establish a baseline
-  for reinforcement learning.
-  From a common SFT checkpoint, we will explore
-  improved RLCD optimization strategies for more
-  accurate and better-calibrated decisions.
+  Starting from EuroBERT, we will perform supervised
+  fine-tuning on hard-labeled decision data to obtain
+  our own SFT checkpoint.
+  We will then establish an RLCD baseline based on
+  Laya's RLCD formulation, using soft-label supervision.
+  Using the same SFT checkpoint, we will compare this
+  baseline with improved RLCD optimization strategies
+  for more accurate and better-calibrated decisions.
 
 \end{itemize}
 
