@@ -176,17 +176,20 @@ with RLCD optimization.
 
   \item \textbf{Model Training and RLCD Optimization.}
   Using \textbf{EuroBERT} as our base checkpoint,
-  we will adopt a two-stage training framework.
-  First, we will perform supervised fine-tuning
-  (SFT) on high-quality decision datasets to establish
-  general decision-making capabilities.
-  We will then apply RLCD to optimize decision
-  probabilities using verified probabilistic
-  supervision.
-  We also aim to improve Laya's original RLCD
-  algorithm by exploring enhanced reinforcement
-  learning optimization strategies for more
-  reliable and calibrated decisions.
+  we plan to develop a reliable two-stage training
+  framework. This framework will support modern
+  training techniques such as sequence packing to
+  improve training efficiency.
+  In the first stage, we will perform supervised
+  fine-tuning (SFT) on high-quality decision datasets
+  to establish foundational classification capabilities.
+  We will then apply RLCD with probabilistic
+  supervision to improve the calibration of predicted
+  probabilities.
+  Building on this framework, we further aim to refine
+  Laya's original RLCD algorithm by exploring enhanced
+  reinforcement learning optimization strategies for
+  more reliable and calibrated decisions.
 
 \end{itemize}
 
