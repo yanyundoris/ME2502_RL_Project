@@ -165,18 +165,14 @@ with RLCD optimization.
 \begin{itemize}
 
   \item \textbf{Data Construction and Curation.}
-  We will use all official \texttt{typed-decisions}
-  training examples and collect additional
-  open-source decision datasets across multiple
-  domains.
-  Our data preparation will cover two types of
-  supervision: hard labels for SFT and probabilistic
-  calibration labels for RLCD.
-  Since reliable probabilistic labels are scarce,
-  we will synthesize diverse decision scenarios
-  and construct calibration labels from
-  teacher-model logit distributions or aggregated
-  predictions through repeated sampling and voting.
+  We plan to collect diverse datasets across multiple
+  domains to support model training and evaluation.
+  We will develop a data processing pipeline for data
+  acquisition, cleaning, and augmentation.
+  Hard-labeled data will be used to establish the
+  model's foundational classification capabilities,
+  while soft-labeled data will support RLCD training
+  to better calibrate predicted probabilities.
 
   \item \textbf{Model Training and RLCD Optimization.}
   Using \textbf{EuroBERT} as our base checkpoint,
