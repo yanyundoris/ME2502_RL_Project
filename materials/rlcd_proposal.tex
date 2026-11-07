@@ -95,11 +95,12 @@ Jev introduces a complementary paradigm of
 structured probabilistic decisions, producing
 explicit probability distributions over candidate
 actions instead of lengthy reasoning trajectories.
-Inspired by this paradigm, our project explores how
+Motivated by this direction, our project asks what gains
 \textbf{Reinforcement Learning for Calibrated
-Decisions (RLCD)} can enhance decision accuracy,
-probability calibration, and reliability through
-a reproducible training framework.
+Decisions (RLCD)} offers beyond supervised
+fine-tuning (SFT), and whether improved RLCD
+optimization can further enhance decision accuracy
+and probability calibration from the same SFT checkpoint.
 
 % ==================================================
 % Related Work
@@ -172,19 +173,21 @@ The work will comprise two components:
 
 \section*{Evaluation Plan}
 
-We will evaluate DecisionRL on hard-label benchmarks
+Evaluation will compare our SFT checkpoint,
+the RLCD baseline, and improved RLCD variants on
+the same held-out hard-label benchmarks
 (e.g. Banking77) and soft-label benchmarks
-(e.g. Typed Decisions), comparing it with
-representative decision models (e.g. Jev).
-The evaluation will use \textbf{Accuracy},
+(e.g. Typed Decisions).
+\textbf{Accuracy},
 \textbf{Macro F1 Score},
-\textbf{Expected Calibration Error},
+\textbf{Expected Calibration Error (ECE)},
 and \textbf{Brier Score}
-to assess the foundational decision-making
-capabilities established through SFT, with particular
-emphasis on analyzing how RLCD and our proposed
-improvements affect probability calibration
-and decision-making behavior.
+will measure decision quality and probability calibration.
+Comparing SFT with the RLCD baseline will quantify
+RLCD's incremental gains; comparisons among RLCD
+variants initialized from the same SFT checkpoint,
+using the same training data and comparable training
+budgets, will test the proposed optimization improvements.
 
 % ==================================================
 % Resources and Responsibilities
@@ -193,15 +196,16 @@ and decision-making behavior.
 \section*{Required Resources and Division of Responsibilities}
 
 \textbf{Resources:}
-No additional equipment or specialized resources
-are required.
+Two NVIDIA H100 GPUs and 10~GB of storage are planned
+for training and evaluation.
 
 \textbf{Preliminary Division of Responsibilities:}
-Both team members will jointly participate in project
-discussions, research planning, and RLCD methodological
-design.
-Yanyun LIU will primarily contribute to data
-collection, synthesis, and quality control,
-while Taihua Chen will focus more on model and algorithm optimization.
+Both members will jointly design RLCD improvements
+and controlled experiments.
+Yanyun LIU will lead data curation, quality control,
+and evaluation preparation; Taihua Chen will implement
+the two-stage training pipeline, RLCD baseline,
+and optimization variants.
+Both will analyze results and write the final report.
 
 \end{document}
