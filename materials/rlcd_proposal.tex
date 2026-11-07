@@ -102,12 +102,11 @@ Jev introduces a complementary paradigm of
 structured probabilistic decisions, producing
 explicit probability distributions over candidate
 actions instead of lengthy reasoning trajectories.
-Motivated by this direction, our project asks what gains
+Our project investigates the role of
 \textbf{Reinforcement Learning for Calibrated
-Decisions (RLCD)} offers beyond supervised
-fine-tuning (SFT), and whether improved RLCD
-optimization can further enhance decision accuracy
-and probability calibration from the same SFT checkpoint.
+Decisions (RLCD)} in improving decision accuracy
+and probability calibration beyond supervised fine-tuning,
+with a focus on opportunities to improve its optimization.
 
 % ==================================================
 % Related Work
@@ -181,7 +180,7 @@ The work will comprise two components:
 \section*{Evaluation Plan}
 
 Evaluation will compare our SFT checkpoint,
-the RLCD baseline, and improved RLCD variants on
+the RLCD baseline, and our improved RLCD method on
 the same held-out hard-label benchmarks
 (e.g. Banking77) and soft-label benchmarks
 (e.g. Typed Decisions).
@@ -191,10 +190,11 @@ the same held-out hard-label benchmarks
 and \textbf{Brier Score}
 will measure decision quality and probability calibration.
 Comparing SFT with the RLCD baseline will quantify
-RLCD's incremental gains; comparisons among RLCD
-variants initialized from the same SFT checkpoint,
-using the same training data and comparable training
-budgets, will test the proposed optimization improvements.
+RLCD's incremental gains; comparing the baseline
+with our improved method, initialized from the same
+SFT checkpoint and using the same training data and
+comparable training budgets, will test the effectiveness
+of the proposed optimization.
 
 % ==================================================
 % Resources and Responsibilities
@@ -212,7 +212,7 @@ discussions, research planning, and RLCD methodological
 design.
 Yanyun LIU will primarily contribute to data collection,
 development of the data cleaning pipeline, and quality control,
-while Taihua Chen will focus more on model and algorithm
-optimization, including sequence packing.
+while Taihua Chen will focus on implementing the two-stage
+training pipeline and optimizing the model and learning algorithm.
 
 \end{document}
