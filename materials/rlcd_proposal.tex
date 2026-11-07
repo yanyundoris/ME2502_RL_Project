@@ -27,7 +27,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{3pt}
 \setlength{\emergencystretch}{1.5em}
-\linespread{1.10}
+\linespread{1.09}
 
 \raggedbottom
 \pagestyle{empty}
@@ -56,32 +56,32 @@
 % Title
 % ==================================================
 
-\begin{center}
-  \begin{minipage}[c]{0.27\textwidth}
+\noindent
+  \begin{minipage}[c]{0.29\textwidth}
     \includegraphics[width=\linewidth]{../figures/slai_logo.pdf}
   \end{minipage}\hfill
-  \begin{minipage}[c]{0.70\textwidth}
-  \centering
-  {\fontsize{15}{18}\selectfont
-   \bfseries\color{ink}
-   DecisionRL: Enhancing Decision\\
-   Calibration through Reinforcement Learning\par}
+  \begin{minipage}[c]{0.67\textwidth}
+    \raggedleft
+    {\small\color{muted}
+     Reinforcement Learning Course Project Proposal}
   \end{minipage}\par
 
-  \vspace{4pt}
+\vspace{4pt}
+{\centering
+  {\fontsize{15}{18}\selectfont
+   \bfseries\color{ink}
+   DecisionRL: Enhancing Decision Calibration\\
+   through Reinforcement Learning\par}
 
-  {\small\color{muted}
-   Reinforcement Learning Course Project Proposal}
-
-  \vspace{5pt}
+  \vspace{3pt}
 
   {\small
    \textbf{Team Members:}
     \quad\textbullet\quad
    Taihua Chen (260010020)
    \quad\textbullet\quad
-   Yanyun LIU (260010215)}
-\end{center}
+   Yanyun LIU (260010215)\par}
+}
 
 \vspace{1pt}
 
@@ -207,12 +207,12 @@ Two NVIDIA H100 GPUs and 10~GB of storage are planned
 for training and evaluation.
 
 \textbf{Preliminary Division of Responsibilities:}
-Both members will jointly design RLCD improvements
-and controlled experiments.
-Yanyun LIU will lead data curation, quality control,
-and evaluation preparation; Taihua Chen will implement
-the two-stage training pipeline, RLCD baseline,
-and optimization variants.
-Both will analyze results and write the final report.
+Both team members will jointly participate in project
+discussions, research planning, and RLCD methodological
+design.
+Yanyun LIU will primarily contribute to data collection,
+development of the data cleaning pipeline, and quality control,
+while Taihua Chen will focus more on model and algorithm
+optimization, including sequence packing.
 
 \end{document}
