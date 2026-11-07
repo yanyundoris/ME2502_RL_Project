@@ -3,10 +3,10 @@
 
 % ---------- Page setup ----------
 \usepackage[
-  top=17mm,
-  bottom=17mm,
-  left=19mm,
-  right=19mm
+  top=14mm,
+  bottom=15mm,
+  left=17mm,
+  right=17mm
 ]{geometry}
 
 \usepackage[T1]{fontenc}
@@ -16,6 +16,7 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{xcolor}
+\usepackage{graphicx}
 
 % ---------- Color palette ----------
 \definecolor{ink}{HTML}{193A4D}
@@ -26,7 +27,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{3pt}
 \setlength{\emergencystretch}{1.5em}
-\linespread{1.055}
+\linespread{1.10}
 
 \raggedbottom
 \pagestyle{empty}
@@ -38,7 +39,7 @@
   [\vspace{2pt}\color{rulegray}\titlerule]
 
 \titlespacing*{\section}
-  {0pt}{9pt}{4pt}
+  {0pt}{10pt}{4pt}
 
 % ---------- List formatting ----------
 \setlist[itemize]{
@@ -56,10 +57,16 @@
 % ==================================================
 
 \begin{center}
+  \begin{minipage}[c]{0.27\textwidth}
+    \includegraphics[width=\linewidth]{../figures/slai_logo.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.70\textwidth}
+  \centering
   {\fontsize{15}{18}\selectfont
    \bfseries\color{ink}
-   DecisionRL: Enhancing Decision Calibration\\
-   through Reinforcement Learning\par}
+   DecisionRL: Enhancing Decision\\
+   Calibration through Reinforcement Learning\par}
+  \end{minipage}\par
 
   \vspace{4pt}
 
